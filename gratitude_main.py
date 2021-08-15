@@ -1,3 +1,5 @@
+
+
 import time
 
 
@@ -7,9 +9,9 @@ day = ""
 
 info = input('what are you grateful for today? -> ')
 
-def append(input):
+def append(text):
     with open(db, 'a') as f:
-        print(input('what are you grateful for today? -> '), file=f)
+        text = print(info, file=f)
 
 def read():
     with open(db, 'r') as f:
@@ -26,3 +28,4 @@ def run():
 # read()
 run()
 # read()
+
