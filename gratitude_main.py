@@ -1,3 +1,5 @@
+
+
 from datetime import date
 import random
 
@@ -8,7 +10,7 @@ today = date.today()
 random_entry = ""
 all_entries = []
 
-
+print()
 # print entry from random date
 def rand_selection():
     with open(db, 'r') as f:
@@ -22,7 +24,8 @@ def rand_selection():
 print(rand_selection())
 print()
 
-info = [str(today) + ': ' + input('what are you grateful for today? -> ')]
+stuff = input('what are you grateful for today? -> ')
+info = [str(today) + ': ' + stuff]
 
 def append(text):
     with open(db, 'a') as f:
@@ -30,12 +33,17 @@ def append(text):
 
 def read():
     with open(db, 'r') as f:
+        count = 1
         for i in f.readlines():
-            print(i)
+            print(str(count) + ' ' + i)
+            count += 1
         input('...')
 
 def run():
-    if info == 'READ':
+    if stuff == 'READ':
+        print()
+        print('-------------------------------------------------------------------------------------------------------')
+        print()
         print(read())
     else:
         append(info)
@@ -43,3 +51,4 @@ def run():
 # read()
 run()
 # read()
+
